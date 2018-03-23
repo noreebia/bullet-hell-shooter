@@ -1,19 +1,19 @@
 package bhs.server.game.main;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.net.*;
-import java.util.ArrayList;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
-import bhs.server.game.control.*;
+import bhs.server.game.control.DataController;
+import bhs.server.game.control.EnemySystem;
 import game.protocol.Client;
 import game.protocol.Player;
 
 public class InputHandlingThread implements Runnable {
-
 	private DatagramSocket socket;
 	private DatagramPacket packet;
 	private byte[] buf = new byte[8192];

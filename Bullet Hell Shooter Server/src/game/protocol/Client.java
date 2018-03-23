@@ -3,7 +3,6 @@ package game.protocol;
 import java.net.InetAddress;
 
 public class Client {
-	
 	private long lastSentTime;
 	private InetAddress address;
 	private int port;

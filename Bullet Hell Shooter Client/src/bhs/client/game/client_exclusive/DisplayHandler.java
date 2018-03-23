@@ -8,7 +8,6 @@ import processing.core.PApplet;
 import processing.core.PFont;
 
 public class DisplayHandler {
-
 	short connectionID;
 	int durationOfLevelChangeDisplay = 1000;
 	int aliveEnemies;

@@ -7,7 +7,6 @@ import game.protocol.GameObject;
 import game.protocol.Player;
 
 public class DataController {
-	
 	private Data data = new Data();
 	private boolean newPlayer = true;
 	

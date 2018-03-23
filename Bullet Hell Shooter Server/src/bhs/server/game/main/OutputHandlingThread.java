@@ -3,16 +3,15 @@ package bhs.server.game.main;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.net.*;
-import java.util.ArrayList;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
-import bhs.server.game.control.*;
+import bhs.server.game.control.DataController;
+import bhs.server.game.control.EnemySystem;
 import game.protocol.Client;
 
 public class OutputHandlingThread implements Runnable {
-
 	private ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	private ObjectOutputStream os;
 	private byte[] buf = new byte[8192];

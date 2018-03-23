@@ -1,14 +1,16 @@
 package bhs.client.main;
 
-import java.awt.*;
-import java.awt.geom.*;
-
-import javax.swing.*;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
 public class AvatarDisplayPanel extends JPanel{
-
 	BasicStroke stroke = new BasicStroke(2.0f);
 	Color color = new Color(255,255,255);
 	String username;

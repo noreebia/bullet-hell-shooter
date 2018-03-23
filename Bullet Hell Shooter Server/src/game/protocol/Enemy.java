@@ -1,7 +1,6 @@
 package game.protocol;
 
 public class Enemy extends GameObject {
-
 	int hp = 3;
 	float velocityX = -1;
 	float velocityY = -1; 

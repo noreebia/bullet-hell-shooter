@@ -8,7 +8,6 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 public class PanelWithImage extends javax.swing.JPanel{
-	
 	private BufferedImage backgroundImage;
 	String desiredImagePart = "";
 	

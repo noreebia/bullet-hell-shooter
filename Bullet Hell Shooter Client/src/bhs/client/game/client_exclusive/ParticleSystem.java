@@ -1,10 +1,8 @@
 package bhs.client.game.client_exclusive;
 
-import game.protocol.GameObject;
 import processing.core.PApplet;
 
 public class ParticleSystem {
-
 	PApplet world;
 	Particle particles[] = new Particle[8];
 	boolean active = false;

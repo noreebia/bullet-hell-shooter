@@ -1,10 +1,5 @@
 package bhs.client.main;
 
-import java.awt.Dialog;
-
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-
 public class ErrorScreen extends javax.swing.JFrame {
 
     /**

@@ -1,16 +1,8 @@
 package bhs.client.game.main;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.awt.Frame;
-import java.io.*;
-import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.SocketException;
-import java.net.UnknownHostException;
-import java.nio.ByteBuffer;
-import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -18,15 +10,16 @@ import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
 
-import bhs.client.game.client_exclusive.*;
+import bhs.client.game.client_exclusive.DisplayHandler;
+import bhs.client.game.client_exclusive.PhysicsEngine;
+import bhs.client.game.client_exclusive.PlayerController;
 import bhs.client.game.control.DataController;
-import game.protocol.*;
+import game.protocol.Player;
 import processing.awt.PSurfaceAWT;
 import processing.awt.PSurfaceAWT.SmoothCanvas;
 import processing.core.PApplet;
 
 public class World extends PApplet {
-	
 	InetAddress serverAddress;
 	int serverPort;
 	DatagramSocket socket;

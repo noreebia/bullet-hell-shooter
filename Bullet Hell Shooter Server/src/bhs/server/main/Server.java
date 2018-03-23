@@ -21,7 +21,6 @@ public class Server {
 	private ObjectInputStream ois;
 	private Message incomingMessage;
 	private Message outgoingMessage;
-
 	AtomicInteger uniqueRoomID = new AtomicInteger();
 
 	public Server() throws IOException {

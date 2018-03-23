@@ -1,16 +1,7 @@
 package bhs.server.game.main;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
 import java.net.SocketException;
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
@@ -30,7 +21,6 @@ public class Room {
 	private List<Client> clients = new CopyOnWriteArrayList<Client>();
 	private short connectionCount=0;
 	private int id;
-	private int port;
 	private InputHandlingThread inputHandlingThread;
 	private OutputHandlingThread outputHandlingThread;
 	private ExecutorService executor = Executors.newCachedThreadPool();

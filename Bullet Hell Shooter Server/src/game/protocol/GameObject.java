@@ -3,7 +3,6 @@ package game.protocol;
 import java.io.Serializable;
 
 public class GameObject implements Serializable{
-	
 	public float x,y;
 	public short[] rgb = {255,255,255};
 	public short size = 10;

@@ -1,7 +1,6 @@
 package bhs.client.game.main;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.net.DatagramPacket;
@@ -9,10 +8,8 @@ import java.net.DatagramSocket;
 
 import bhs.client.game.control.DataController;
 import game.protocol.Data;
-import game.protocol.Player;
 
 public class InputHandlingThread implements Runnable {
-
 	byte[] buf = new byte[20000];
 	DatagramPacket packet;
 	DatagramSocket socket;

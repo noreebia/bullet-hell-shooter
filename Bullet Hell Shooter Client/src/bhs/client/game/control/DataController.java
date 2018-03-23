@@ -1,13 +1,13 @@
 package bhs.client.game.control;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
-import game.protocol.*;
+import game.protocol.Data;
+import game.protocol.GameObject;
+import game.protocol.Player;
 
 
 public class DataController {
-
 	private Data data = new Data();
 	public boolean levelChanged;
 	

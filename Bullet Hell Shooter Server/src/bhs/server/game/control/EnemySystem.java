@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import bhs.server.game.main.Room;
 import game.protocol.Enemy;
 import game.protocol.GameObject;
 import game.protocol.Player;
@@ -12,20 +11,14 @@ import game.protocol.Player;
 
 public class EnemySystem {
 	DataController dataController;
-
 	List<Enemy> originals = new ArrayList<Enemy>();
 	List<GameObject> shadows;
-
 	float speed = 1;
 	int offset = 150;
-	
 	int screenWidth = 1200;
 	int screenHeight = 800;
-	
 	int enemySpawnLocationWidth = 150;
-	
 	boolean everyEnemyDead;
-
 	Random rand = new Random();
 	
 	public EnemySystem(DataController dataController) {

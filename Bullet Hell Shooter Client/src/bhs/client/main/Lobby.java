@@ -8,9 +8,7 @@ package bhs.client.main;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.DatagramSocket;
 import java.net.Socket;
-import java.net.SocketException;
 
 import javax.swing.text.DefaultCaret;
 
@@ -21,7 +19,6 @@ import protocol.Message;
  * @author noreebia
  */
 public class Lobby extends javax.swing.JFrame {
-	
 	Socket socket;
 	String username;
 	ObjectOutputStream oos;

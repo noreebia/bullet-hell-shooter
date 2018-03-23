@@ -1,7 +1,6 @@
 package game.protocol;
 
 public class Bullet extends GameObject{
-	
 	public short direction;
 	boolean active = false;
 	

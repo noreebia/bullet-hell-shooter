@@ -4,7 +4,6 @@ import bhs.client.game.control.DataController;
 import game.protocol.*;
 
 public class PhysicsEngine {
-	
 	DataController dataController;
 	PlayerController playerController;
 	Player player;

@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -57,7 +58,7 @@ public class InputHandler extends Thread {
 					chatbox.append(messageData);
 					break;
 				case "refresh room list response":
-					ArrayList<String> roomList = (ArrayList<String>) message.getData();
+					List<String> roomList = (ArrayList<String>) message.getData();
 					listModel.clear();
 					for (String roomInfo : roomList) {
 						listModel.addElement(roomInfo);

@@ -1,13 +1,9 @@
 package bhs.client.game.client_exclusive;
 
-import java.util.ArrayList;
-
-import game.protocol.Bullet;
 import game.protocol.Player;
 import processing.core.PApplet;
 
 public class PlayerController {
-	
 	Player player;
 	BulletSystem bulletSystem;
 	String username;

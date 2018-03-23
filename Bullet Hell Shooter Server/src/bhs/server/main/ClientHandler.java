@@ -1,14 +1,11 @@
 package bhs.server.main;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import bhs.server.game.main.Room;
@@ -20,8 +17,6 @@ public class ClientHandler extends Thread {
 	private List<ClientHandler> clientHandlingThreads;
 	private List<Room> rooms;
 	private AtomicInteger uniqueRoomID;
-	private BufferedReader input;
-	private PrintWriter output;
 	private ObjectOutputStream oos;
 	private ObjectInputStream ois;
 	volatile boolean run = true;
@@ -82,14 +77,14 @@ public class ClientHandler extends Thread {
 			case "create game":
 				int newRoomID = createRoom();
 				handleRoomJoinRequest(newRoomID);
-				refreshEveryClient();
+				refreshRoomListOfEveryClient();
 				break;
 			case "join game":
 				int roomID = (int) incomingMessage.getData();
 				handleRoomJoinRequest(roomID);
 				break;
 			case "refresh room list":
-				refreshClient();
+				refreshRoomListOfClient();
 				break;
 			case "exit":
 				terminate();
@@ -114,7 +109,7 @@ public class ClientHandler extends Thread {
 		for (Room r : rooms) {
 			if (r.getID() == roomID) {
 				if (r.getState().equals("Dead") || r.getState().equals("Finished")) {
-					refreshClient();
+					refreshRoomListOfClient();
 				} else {
 					if (r.getPlayerCount() <= 3) {
 						int[] roomInfo = { r.getPort(), r.getUniquePlayerID() };
@@ -125,24 +120,25 @@ public class ClientHandler extends Thread {
 				return;
 			}
 		}
-		refreshClient();
+		refreshRoomListOfClient();
 	}
 
-	public void refreshClient() {
-		List<String> listOfRooms = new ArrayList<String>();
-		for (Room r : rooms) {
-			if (r.getState().equals("Dead")) {
-				rooms.remove(r);
-			} else {
-				listOfRooms.add("Room " + r.getID() + "     Players:" + r.getPlayerCount() + "/4" + "     Stage: "
-						+ r.getCurrentStage() + "    " + r.getState());
-			}
-		}
-		Message message = new Message("refresh room list response", listOfRooms);
+	public void refreshRoomListOfClient() {
+		Message message = createRoomListRefreshmentMessage();
 		sendToClient(message);
 	}
 
-	public void refreshEveryClient() {
+	public void refreshRoomListOfEveryClient() {
+		Message message = createRoomListRefreshmentMessage();
+		sendToAllClients(message);
+	}
+	
+	public Message createRoomListRefreshmentMessage() {
+		List<String> listOfRooms = getActiveRooms();
+		return new Message("refresh room list response", listOfRooms);
+	}
+	
+	public List<String> getActiveRooms(){
 		List<String> listOfRooms = new ArrayList<String>();
 		for (Room r : rooms) {
 			if (r.getState().equals("Dead")) {
@@ -152,10 +148,8 @@ public class ClientHandler extends Thread {
 						+ r.getCurrentStage() + "    " + r.getState());
 			}
 		}
-		Message message = new Message("refresh room list response", listOfRooms);
-		sendToAllClients(message);
+		return listOfRooms;
 	}
-	
 
 	public void sendToClient(Message message) {
 		try {

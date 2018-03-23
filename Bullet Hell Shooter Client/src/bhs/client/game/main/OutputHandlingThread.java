@@ -1,18 +1,15 @@
 package bhs.client.game.main;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-import game.protocol.*;
+import game.protocol.Player;
 
 public class OutputHandlingThread implements Runnable {
-
 	InetAddress serverAddress;
 	int serverPort;
 	DatagramSocket socket;
