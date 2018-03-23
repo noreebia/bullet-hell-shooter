@@ -11,6 +11,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -23,27 +24,19 @@ import bhs.server.game.control.EnemySystem;
 import game.protocol.Client;
 
 public class Room {
-	DatagramSocket socket;
-		
-	DataController dataController = new DataController();
-	EnemySystem enemySystem = new EnemySystem(dataController);
-	
-	CopyOnWriteArrayList<Client> clients = new CopyOnWriteArrayList<Client>();
-	
-	short connectionCount=0;
-	
-	int id;
-	int port;
-	
-	InputHandlingThread inputHandlingThread;
-	OutputHandlingThread outputHandlingThread;
-	
-	ExecutorService executor = Executors.newCachedThreadPool();
-	ScheduledExecutorService ses = Executors.newScheduledThreadPool(3);
-	
-	AtomicInteger uniquePlayerID = new AtomicInteger();
-	
-	String state = "Joinable";
+	private DatagramSocket socket;		
+	private DataController dataController = new DataController();
+	private EnemySystem enemySystem = new EnemySystem(dataController);
+	private List<Client> clients = new CopyOnWriteArrayList<Client>();
+	private short connectionCount=0;
+	private int id;
+	private int port;
+	private InputHandlingThread inputHandlingThread;
+	private OutputHandlingThread outputHandlingThread;
+	private ExecutorService executor = Executors.newCachedThreadPool();
+	private ScheduledExecutorService ses = Executors.newScheduledThreadPool(3);
+	private AtomicInteger uniquePlayerID = new AtomicInteger();
+	private String state = "Joinable";
 	
 	public Room(int id) {
 		System.out.println("Room number " + id + "created");

@@ -21,12 +21,12 @@ import protocol.Message;
  * @author noreebia
  */
 public class Lobby extends javax.swing.JFrame {
+	
 	Socket socket;
 	String username;
 	ObjectOutputStream oos;
 	ObjectInputStream ois;
 	InputHandler inputHandler;
-	
 	volatile boolean pressedExit = false;
 
 	/**

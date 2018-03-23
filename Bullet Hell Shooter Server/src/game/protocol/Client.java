@@ -4,10 +4,10 @@ import java.net.InetAddress;
 
 public class Client {
 	
-	long lastSentTime;
-	InetAddress address;
-	int port;
-	short id;
+	private long lastSentTime;
+	private InetAddress address;
+	private int port;
+	private short id;
 	
 	public Client(short id, InetAddress address, int port, long lastSentTime){
 		this.id = id;

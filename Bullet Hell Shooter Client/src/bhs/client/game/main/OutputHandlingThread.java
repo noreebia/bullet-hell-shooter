@@ -15,14 +15,11 @@ public class OutputHandlingThread implements Runnable {
 
 	InetAddress serverAddress;
 	int serverPort;
-
 	DatagramSocket socket;
 	DatagramPacket packet;
-
 	ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	ObjectOutputStream os;
 	Player player;
-
 	byte[] buf;
 
 	public OutputHandlingThread(DatagramSocket socket, InetAddress serverAddress, int serverPort, Player player) {

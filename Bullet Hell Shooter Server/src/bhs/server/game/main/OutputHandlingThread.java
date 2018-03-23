@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import bhs.server.game.control.*;
@@ -12,22 +13,18 @@ import game.protocol.Client;
 
 public class OutputHandlingThread implements Runnable {
 
-	ByteArrayOutputStream baos = new ByteArrayOutputStream();
-	ObjectOutputStream os;
-
-	byte[] buf = new byte[8192];
-	DatagramSocket socket;
-	DatagramPacket packet;
-
-	DataController dataController;
-	CopyOnWriteArrayList<Client> clients;
-
-	EnemySystem enemySystem;
-	
-	Room room;
+	private ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	private ObjectOutputStream os;
+	private byte[] buf = new byte[8192];
+	private DatagramSocket socket;
+	private DatagramPacket packet;
+	private DataController dataController;
+	private List<Client> clients;
+	private EnemySystem enemySystem;
+	private Room room;
 
 	public OutputHandlingThread(Room room, DatagramSocket socket, DataController dataController,
-			CopyOnWriteArrayList<Client> clients, EnemySystem enemySystem) {
+			List<Client> clients, EnemySystem enemySystem) {
 		this.room = room;
 		this.socket = socket;
 		try {

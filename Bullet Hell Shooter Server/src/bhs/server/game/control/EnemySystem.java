@@ -1,7 +1,7 @@
 package bhs.server.game.control;
 
 import java.util.ArrayList;
-
+import java.util.List;
 import java.util.Random;
 
 import bhs.server.game.main.Room;
@@ -13,8 +13,8 @@ import game.protocol.Player;
 public class EnemySystem {
 	DataController dataController;
 
-	ArrayList<Enemy> originals = new ArrayList<Enemy>();
-	ArrayList<GameObject> shadows;
+	List<Enemy> originals = new ArrayList<Enemy>();
+	List<GameObject> shadows;
 
 	float speed = 1;
 	int offset = 150;
@@ -156,11 +156,11 @@ public class EnemySystem {
 		return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
 	}
 
-	public ArrayList<GameObject> getShadows() {
+	public List<GameObject> getShadows() {
 		return shadows;
 	}
 
-	public ArrayList<Enemy> getOriginals() {
+	public List<Enemy> getOriginals() {
 		return originals;
 	}
 	

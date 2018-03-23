@@ -14,16 +14,12 @@ import game.protocol.Player;
 public class InputHandlingThread implements Runnable {
 
 	byte[] buf = new byte[20000];
-
 	DatagramPacket packet;
 	DatagramSocket socket;
-
 	ByteArrayInputStream bais;
 	ObjectInputStream is;
-
 	Data temp;
 	DataController dataController;
-
 	short connectionID;
 	boolean run = true;
 

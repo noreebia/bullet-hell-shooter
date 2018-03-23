@@ -1,9 +1,11 @@
 package bhs.server.main;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -11,17 +13,14 @@ import bhs.server.game.main.Room;
 import protocol.Message;
 
 public class Server {
-	CopyOnWriteArrayList<Client> clients = new CopyOnWriteArrayList<Client>();
-	CopyOnWriteArrayList<Room> rooms = new CopyOnWriteArrayList<Room>();
-
-	CopyOnWriteArrayList<ClientHandler> clientHandlingThreads = new CopyOnWriteArrayList<ClientHandler>();
-	ServerSocket serverSocket;
-	
-	ObjectOutputStream oos;
-	ObjectInputStream ois;
-	
-	Message incomingMessage;
-	Message outgoingMessage;
+	private List<Client> clients = new CopyOnWriteArrayList<Client>();
+	private List<Room> rooms = new CopyOnWriteArrayList<Room>();
+	private List<ClientHandler> clientHandlingThreads = new CopyOnWriteArrayList<ClientHandler>();
+	private ServerSocket serverSocket;
+	private ObjectOutputStream oos;
+	private ObjectInputStream ois;
+	private Message incomingMessage;
+	private Message outgoingMessage;
 
 	AtomicInteger uniqueRoomID = new AtomicInteger();
 

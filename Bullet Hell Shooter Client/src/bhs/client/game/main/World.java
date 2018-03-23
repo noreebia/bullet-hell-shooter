@@ -26,31 +26,23 @@ import processing.awt.PSurfaceAWT.SmoothCanvas;
 import processing.core.PApplet;
 
 public class World extends PApplet {
+	
 	InetAddress serverAddress;
 	int serverPort;
-
 	DatagramSocket socket;
-
 	Player player;
-
 	DataController dataController;
 	PlayerController playerController;
 	DisplayHandler displayHandler;
 	PhysicsEngine physicsEngine;
-
 	short playerID;
-
 	ExecutorService executor;
 	ScheduledExecutorService ses;
-
 	InputHandlingThread inputHandlingThread;
 	OutputHandlingThread outputHandlingThread;
-	
 	JFrame lobby;
 	Frame frame;
-
 	String username;
-
 	boolean shouldRun = false;
 
 	public World(String username, JFrame lobby) {
@@ -65,7 +57,6 @@ public class World extends PApplet {
 	public void setup() {
 		strokeWeight((float) 1.5);
 		stroke(255);
-
 		frame = ((SmoothCanvas) ((PSurfaceAWT) surface).getNative()).getFrame();
 		frame.setVisible(false);
 		noLoop();

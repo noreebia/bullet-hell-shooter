@@ -1,7 +1,7 @@
 package bhs.client.game.client_exclusive;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 import game.protocol.Bullet;
@@ -16,16 +16,12 @@ public class BulletSystem {
 	int width = 4;
 	int lastFiredTime = 0;
 	float reloadTime = 100;
-
 	float bulletSpeedModifier;
 	float bulletSpeedModifierStraight = 15;
 	float bulletSpeedModifierDiagonal = (float) (bulletSpeedModifierStraight / Math.sqrt(2));
 	float bulletSpeedX, bulletSpeedY;
-
-	public Vector<Bullet> bullets = new Vector<Bullet>();
-
-	public ArrayList<Integer> collidedBullets = new ArrayList<Integer>();
-
+	public List<Bullet> bullets = new Vector<Bullet>();
+	public List<Integer> collidedBullets = new ArrayList<Integer>();
 	public short[] bulletRGB;
 
 	public BulletSystem(PApplet world, Player owner, short[] bulletRGB) {
@@ -133,7 +129,7 @@ public class BulletSystem {
 		b.move(bulletSpeedX * bulletSpeedModifier, bulletSpeedY * bulletSpeedModifier);
 	}
 
-	public Vector<Bullet> getBullets() {
+	public List<Bullet> getBullets() {
 		return bullets;
 	}
 

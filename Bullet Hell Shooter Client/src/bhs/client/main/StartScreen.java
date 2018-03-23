@@ -19,7 +19,6 @@ public class StartScreen extends javax.swing.JFrame {
 	}
 
 	private void initComponents() {
-
 		jPanel2 = new PanelWithImage("/data/background_sun.jpg", "middle");
 		jPanel1 = new javax.swing.JPanel();
 		jTextField1 = new javax.swing.JTextField();

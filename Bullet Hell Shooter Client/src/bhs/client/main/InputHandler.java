@@ -2,15 +2,12 @@ package bhs.client.main;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.StreamCorruptedException;
 import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
 import javax.swing.JList;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import bhs.client.game.main.World;

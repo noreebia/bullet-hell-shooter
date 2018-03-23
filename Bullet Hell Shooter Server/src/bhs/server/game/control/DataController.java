@@ -1,9 +1,10 @@
 package bhs.server.game.control;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.List;
 
-import game.protocol.*;
+import game.protocol.Data;
+import game.protocol.GameObject;
+import game.protocol.Player;
 
 public class DataController {
 	
@@ -55,7 +56,7 @@ public class DataController {
 		return data;
 	}
 	
-	public CopyOnWriteArrayList<Player> getPlayers(){
+	public List<Player> getPlayers(){
 		return data.players;
 	}
 	

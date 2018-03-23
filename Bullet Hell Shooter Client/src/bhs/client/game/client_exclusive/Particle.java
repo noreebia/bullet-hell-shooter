@@ -4,8 +4,8 @@ import game.protocol.GameObject;
 import processing.core.PApplet;
 
 public class Particle extends GameObject{
-	PApplet world;
 	
+	PApplet world;
 	float speedX = 0;
 	float speedY = 0;
 	float size = (float) 1.5;

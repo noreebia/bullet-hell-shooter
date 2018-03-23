@@ -1,13 +1,13 @@
 package bhs.server.main;
 
-import java.io.*;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
-import java.net.Socket;
 import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -15,21 +15,19 @@ import bhs.server.game.main.Room;
 import protocol.Message;
 
 public class ClientHandler extends Thread {
-	Client client;
-	CopyOnWriteArrayList<Client> clientList;
-	CopyOnWriteArrayList<ClientHandler> clientHandlingThreads;
-	CopyOnWriteArrayList<Room> rooms;
-	AtomicInteger uniqueRoomID;
-	BufferedReader input;
-	PrintWriter output;
+	private Client client;
+	private List<Client> clientList;
+	private List<ClientHandler> clientHandlingThreads;
+	private List<Room> rooms;
+	private AtomicInteger uniqueRoomID;
+	private BufferedReader input;
+	private PrintWriter output;
+	private ObjectOutputStream oos;
+	private ObjectInputStream ois;
+	volatile boolean run = true;
 
-	ObjectOutputStream oos;
-	ObjectInputStream ois;
-
-	boolean run = true;
-
-	public ClientHandler(Client client, CopyOnWriteArrayList<Client> clientList,
-			CopyOnWriteArrayList<ClientHandler> clientHandlingThreads, CopyOnWriteArrayList<Room> rooms,
+	public ClientHandler(Client client, List<Client> clientList,
+			List<ClientHandler> clientHandlingThreads, List<Room> rooms,
 			AtomicInteger uniqueRoomID) {
 		this.client = client;
 		this.clientList = clientList;
@@ -127,10 +125,11 @@ public class ClientHandler extends Thread {
 				return;
 			}
 		}
+		refreshClient();
 	}
 
 	public void refreshClient() {
-		ArrayList<String> listOfRooms = new ArrayList<String>();
+		List<String> listOfRooms = new ArrayList<String>();
 		for (Room r : rooms) {
 			if (r.getState().equals("Dead")) {
 				rooms.remove(r);
@@ -144,7 +143,7 @@ public class ClientHandler extends Thread {
 	}
 
 	public void refreshEveryClient() {
-		ArrayList<String> listOfRooms = new ArrayList<String>();
+		List<String> listOfRooms = new ArrayList<String>();
 		for (Room r : rooms) {
 			if (r.getState().equals("Dead")) {
 				rooms.remove(r);
@@ -156,6 +155,7 @@ public class ClientHandler extends Thread {
 		Message message = new Message("refresh room list response", listOfRooms);
 		sendToAllClients(message);
 	}
+	
 
 	public void sendToClient(Message message) {
 		try {

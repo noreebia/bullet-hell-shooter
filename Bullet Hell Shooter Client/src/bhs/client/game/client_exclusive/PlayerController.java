@@ -10,27 +10,19 @@ public class PlayerController {
 	
 	Player player;
 	BulletSystem bulletSystem;
-	
 	String username;
-	
 	PApplet world;
-
 	public short directionModifier;
-
 	double angle;
-
 	boolean playerInvincible = false;
 	boolean[] moving = new boolean[4];
 	boolean[] facing = new boolean[4];
-	
 	float speed;
 	float straightSpeed = 5;
 	float diagonalSpeed = (float) (straightSpeed / Math.sqrt(2));
-
 	long timeOfHit;
 	int colorFlashCount;
 	short[] backupRGB;
-	
 	short playerID;
 
 	public PlayerController(PApplet world, Player player, String username, short playerID, int[] playerColor) {

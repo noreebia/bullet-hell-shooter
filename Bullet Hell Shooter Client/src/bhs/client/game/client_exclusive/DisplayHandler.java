@@ -9,24 +9,20 @@ import processing.core.PFont;
 
 public class DisplayHandler {
 
-	PApplet world;
 	short connectionID;
-	DataController dataController;
-
-	int numberOfParticleSystems = 20;
-	ParticleSystem particleSystems[] = new ParticleSystem[numberOfParticleSystems];
-
-	long timeOfLevelChange;
 	int durationOfLevelChangeDisplay = 1000;
 	int aliveEnemies;
 	int alivePlayers;
 	int textOffset = 30;
-
+	int numberOfParticleSystems = 20;
+	long timeOfLevelChange;
+	boolean hasGameEnded = false;
 	Player user;
 	PFont font;
+	PApplet world;
+	DataController dataController;
 	PlayerController playerController;
-
-	boolean hasGameEnded = false;
+	ParticleSystem particleSystems[] = new ParticleSystem[numberOfParticleSystems];
 
 	public DisplayHandler(PApplet world, short connectionID, DataController dataController, Player user,
 			PlayerController playerController) {

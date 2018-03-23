@@ -7,15 +7,11 @@ public class ParticleSystem {
 
 	PApplet world;
 	Particle particles[] = new Particle[8];
-
 	boolean active = false;
 	short r, g, b;
-
 	float pointOfExplosionX;
 	float pointOfExplosionY;
-
 	float deactivationRange = 300;
-
 	float particleStraightSpeed = 10;
 	float particleDiagonalSpeed = (float) (particleStraightSpeed / Math.sqrt(2));
 
