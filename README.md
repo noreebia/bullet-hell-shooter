@@ -6,19 +6,18 @@ Download the jar files of the latest [release](https://github.com/noreebia/bulle
 
 ### Screenshots
 
-![Login screen](screenshots/login.PNG)
-
 Login
 
-![Lobby screen](screenshots/lobby.PNG)
+![Login screen](screenshots/login.PNG)
 
 Lobby
 
-![In-game screen](screenshots/in-game.png)
+![Lobby screen](screenshots/lobby.PNG)
 
 In-game
 
-![End of game screen](screenshots/end-of-game.png)
+![In-game screen](screenshots/in-game.png)
 
 End of game
 
+![End of game screen](screenshots/end-of-game.png)
