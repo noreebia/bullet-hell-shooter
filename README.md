@@ -16,7 +16,7 @@ Lobby
 
 In-game
 
-![In-game screen](screenshots/in-game.png)
+![In-game screen](screenshots/game-start.png)
 
 End of game
 
